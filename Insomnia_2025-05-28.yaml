@@ -1,0 +1,138 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_dcbb2f68e04d40dab6516e4aa9298a11
+  created: 1748476261675
+  modified: 1748476261675
+collection:
+  - url: http://localhost:3000/alunos
+    name: Listar alunos
+    meta:
+      id: req_8508738d42a9417ebf3a861cc2fde112
+      created: 1748476261722
+      modified: 1748476516357
+      isPrivate: false
+      sortKey: -1748476261722
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/alunos
+    name: adicionar alunos
+    meta:
+      id: req_eebc875f29064608bb00b4bedc407e49
+      created: 1748476386587
+      modified: 1748476526456
+      isPrivate: false
+      sortKey: -1748476386587
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "nome": "guilherme",
+          "idade": 15,
+          "curso": "desenvolvimento de Sistemas"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/alunos/10
+    name: apagar aluno
+    meta:
+      id: req_f9f916c63f074693b2570e36f64b9b64
+      created: 1748478020520
+      modified: 1748481117658
+      isPrivate: false
+      sortKey: -1748478020520
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/alunos/1
+    name: New Request
+    meta:
+      id: req_f807f44dd3d5491d96291232f91fd078
+      created: 1748479028991
+      modified: 1748481166848
+      isPrivate: false
+      sortKey: -1748479028991
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "curso": "Arquitetura"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/alunos/1
+    name: filtar aluno
+    meta:
+      id: req_63e98249f8fe4711a305ef5ecc462bd9
+      created: 1748481215348
+      modified: 1748481275344
+      isPrivate: false
+      sortKey: -1748481215348
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_cebdd00399ef3627e6d5316287368cb11cbd4724
+    created: 1748476261678
+    modified: 1748476261678
+environments:
+  name: Base Environment
+  meta:
+    id: env_cebdd00399ef3627e6d5316287368cb11cbd4724
+    created: 1748476261677
+    modified: 1748476261677
+    isPrivate: false
