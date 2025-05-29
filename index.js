@@ -28,6 +28,19 @@ app.post("/alunos", (req, res) => {
   res.status(201).json(novoAluno);
 })
 
+app.delete("/alunos:id", (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const indice = alunos.findIndex(aluno => aluno.id === id);
+
+  if (indice === -1) {
+    return res.status(404).json({ erro: "Aluno não encontrado" });
+  }
+
+  alunos.splice(indice, 1);
+  res.status(204).send();   
+})
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
