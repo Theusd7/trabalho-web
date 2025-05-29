@@ -28,7 +28,7 @@ app.post("/alunos", (req, res) => {
   res.status(201).json(novoAluno);
 })
 
-app.delete("/alunos:id", (req, res) => {
+app.delete("/alunos/:id", (req, res) => {
   const id = parseInt(req.params.id);
 
   const indice = alunos.findIndex(aluno => aluno.id === id);
@@ -38,8 +38,39 @@ app.delete("/alunos:id", (req, res) => {
   }
 
   alunos.splice(indice, 1);
-  res.status(204).send();   
-})
+  res.status(204).send();
+});
+
+app.patch("/alunos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const aluno = alunos.find(aluno => aluno.id === id);
+
+  if (!aluno) {
+    return res.status(404).json({ erro: "Aluno não encontrado" });
+  }
+
+  const { nome, idade, curso } = req.body;
+
+  if (nome !== undefined) aluno.nome = nome;
+  if (idade !== undefined) aluno.idade = idade;
+  if (curso !== undefined) aluno.curso = curso;
+
+  res.json({
+    mensagem: "Aluno atualizado com sucesso",
+    aluno
+  });
+});
+
+app.get("/alunos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const aluno = alunos.find(aluno => aluno.id === id);
+
+  if (!aluno) {
+    return res.status(404).json({ erro: "Aluno não encontrado" });
+  }
+
+  res.json(aluno);
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
